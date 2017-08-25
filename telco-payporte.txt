@@ -48,7 +48,7 @@ API IMPLEMENTATION:
 function activateNumber(Illuminate\Http\Request $request, $customerId, $numberId) {
 	try{
 		
-		$phoneNumber = App\Numbers::where('customerId', 'like', $customerId);
+		$phoneNumber = App\Numbers::where('customerId', 'like', $customerId)->where('numberId', 'like', $numberId)->get();
 		
 		//Activate phone number
 		activate($phoneNumber);
